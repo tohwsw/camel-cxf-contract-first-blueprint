@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="GoodbyeWorldWSService" targetNamespace="http://webservice_producer/goodbyeworld" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservice_producer/goodbyeworld" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <xs:schema targetNamespace="http://webservice_producer/goodbyeworld" version="1.0" xmlns:tns="http://webservice_producer/goodbyeworld" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="sayAdios" type="tns:sayAdios"/>
+   <xs:element name="sayAdiosResponse" type="tns:sayAdiosResponse"/>
+   <xs:element name="sayGoodbye" type="tns:sayGoodbye"/>
+   <xs:element name="sayGoodbyeResponse" type="tns:sayGoodbyeResponse"/>
+   <xs:element name="sayGoodbyeWithoutResponse" type="tns:sayGoodbyeWithoutResponse"/>
+   <xs:complexType name="sayGoodbye">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sayGoodbyeResponse">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sayAdios">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sayAdiosResponse">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sayGoodbyeWithoutResponse">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+  </types>
+  <message name="GoodbyeWorldWS_sayGoodbyeWithoutResponse">
+    <part name="sayGoodbyeWithoutResponse" element="tns:sayGoodbyeWithoutResponse">
+    </part>
+  </message>
+  <message name="GoodbyeWorldWS_sayGoodbyeResponse">
+    <part name="sayGoodbyeResponse" element="tns:sayGoodbyeResponse">
+    </part>
+  </message>
+  <message name="GoodbyeWorldWS_sayAdios">
+    <part name="sayAdios" element="tns:sayAdios">
+    </part>
+  </message>
+  <message name="GoodbyeWorldWS_sayGoodbye">
+    <part name="sayGoodbye" element="tns:sayGoodbye">
+    </part>
+  </message>
+  <message name="GoodbyeWorldWS_sayAdiosResponse">
+    <part name="sayAdiosResponse" element="tns:sayAdiosResponse">
+    </part>
+  </message>
+  <portType name="GoodbyeWorldWS">
+    <operation name="sayAdios" parameterOrder="sayAdios">
+      <input message="tns:GoodbyeWorldWS_sayAdios">
+    </input>
+      <output message="tns:GoodbyeWorldWS_sayAdiosResponse">
+    </output>
+    </operation>
+    <operation name="sayGoodbye" parameterOrder="sayGoodbye">
+      <input message="tns:GoodbyeWorldWS_sayGoodbye">
+    </input>
+      <output message="tns:GoodbyeWorldWS_sayGoodbyeResponse">
+    </output>
+    </operation>
+    <operation name="sayGoodbyeWithoutResponse">
+      <input message="tns:GoodbyeWorldWS_sayGoodbyeWithoutResponse">
+    </input>
+    </operation>
+  </portType>
+  <binding name="GoodbyeWorldWSBinding" type="tns:GoodbyeWorldWS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="sayAdios">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="sayGoodbye">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="sayGoodbyeWithoutResponse">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+    </operation>
+  </binding>
+  <service name="GoodbyeWorldWSService">
+    <port name="GoodbyeWorldWSPort" binding="tns:GoodbyeWorldWSBinding">
+      <soap:address location="http://127.0.0.1:8080/Quickstart_webservice_producer_esb/GoodbyeWorldWS"/>
+    </port>
+  </service>
+</definitions>
